@@ -16,28 +16,32 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
       <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-xl md:text-2xl font-bold">🔎 Coveo Searching</h1>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-center sm:text-left w-full sm:w-auto">
+            🔎 Coveo Searching
+          </h1>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto p-6">
+      <main className="flex-1 max-w-6xl mx-auto w-full p-4 sm:p-6">
         {/* Tabs */}
-        <div className="flex gap-2 mb-6">
-          <Tab id="all" expression="" label="All" />
-          <Tab id="docs" expression='@filetype=="doc"' label="Docs" />
-          <Tab id="pdfs" expression='@filetype=="pdf"' label="PDFs" />
-        </div>
+        <div className="flex flex-wrap gap-2 mb-6 justify-center lg:justify-center">
+  <Tab id="all" expression="" label="All" />
+  <Tab id="docs" expression='@filetype=="doc"' label="Docs" />
+  <Tab id="pdfs" expression='@filetype=="pdf"' label="PDFs" />
+</div>
 
         {/* Search Box */}
-        <SearchBox />
+        <div className="w-full max-w-2xl mx-auto">
+          <SearchBox />
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-6">
           {/* Sidebar with facets */}
-          <aside className="md:col-span-1 space-y-6">
+          <aside className="lg:col-span-1 space-y-6">
             <div className="bg-white rounded-xl shadow p-4">
               <Facet field="author" label="Author" />
             </div>
@@ -50,7 +54,7 @@ function App() {
           </aside>
 
           {/* Results */}
-          <section className="md:col-span-3">
+          <section className="lg:col-span-3">
             <ResultList />
             <div className="mt-6 flex justify-center">
               <Pager />
